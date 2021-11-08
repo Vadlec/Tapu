@@ -24,9 +24,9 @@ Users should be able to:
 
 
 ![Speca Tourism - Homepage](/screenshots/home.jpeg)
-![Speca Tourism - Destination](/screenshots/home.jpeg)
-![Speca Tourism - Crew](/Soution-ss/crew.JPG)
-![Speca Tourism - Technology](/Soution-ss/tech.JPG)
+![Speca Tourism - basket](/screenshots/basket.jpeg)
+![Speca Tourism - account](/screenshots/account.jpeg)
+![Speca Tourism - login](/screenshots/login.jpeg)
 
 
 
