@@ -20,13 +20,20 @@ Users should be able to:
 - Check out available Real Estates
 - Add/Remove Real Estates to basket.
 
+
+
+
+<a href='file:/challenge/React Native.pdf'>The Challenge</a>
+<a href='file:://challenge/React Native.pdf'>The Challenge</a>
+<a href='file://challenge/React Native.pdf'>The Challenge</a>
+
 ### Screenshot
 
+<img src="/screenshots/home.jpeg" width="200" height="500">
+<img src="/screenshots/basket.jpeg" width="200" height="500">
+<img src="/screenshots/account.jpeg" width="200" height="500">
+<img src="/screenshots/Login.jpeg" width="200" height="500">
 
-![Speca Tourism - Homepage](/Soution-ss/home.JPG)
-![Speca Tourism - Destination](/Soution-ss/destination.JPG)
-![Speca Tourism - Crew](/Soution-ss/crew.JPG)
-![Speca Tourism - Technology](/Soution-ss/tech.JPG)
 
 
 
