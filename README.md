@@ -22,10 +22,7 @@ Users should be able to:
 
 
 
-
-<a href='file:/challenge/React Native.pdf'>The Challenge</a>
-<a href='file:://challenge/React Native.pdf'>The Challenge</a>
-<a href='file://challenge/React Native.pdf'>The Challenge</a>
+<a href="/challenge/ReactNative" class="image fit" type="application/pdf">The Challenge</a>
 
 ### Screenshot
 
