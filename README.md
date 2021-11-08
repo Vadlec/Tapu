@@ -23,8 +23,8 @@ Users should be able to:
 ### Screenshot
 
 
-![Speca Tourism - Homepage](/Soution-ss/home.JPG)
-![Speca Tourism - Destination](/Soution-ss/destination.JPG)
+![Speca Tourism - Homepage](/screenshots/home.jpeg)
+![Speca Tourism - Destination](/screenshots/home.jpeg)
 ![Speca Tourism - Crew](/Soution-ss/crew.JPG)
 ![Speca Tourism - Technology](/Soution-ss/tech.JPG)
 
