@@ -25,7 +25,7 @@ Users should be able to:
 <img src="/screenshots/home.jpeg" width="200" height="500">
 <img src="/screenshots/basket.jpeg" width="200" height="500">
 <img src="/screenshots/account.jpeg" width="200" height="500">
-<img src="/screenshots/login.jpeg" width="200" height="500">
+<img src="/screenshots/Login.jpeg" width="200" height="500">
 
 
 
