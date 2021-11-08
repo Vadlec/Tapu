@@ -22,7 +22,7 @@ Users should be able to:
 
 ### Screenshot
 
-
+<img src="/screenshots/home.jpeg" width="100" height="100">
 ![Speca Tourism - Homepage](/screenshots/home.jpeg)
 ![Speca Tourism - basket](/screenshots/basket.jpeg)
 ![Speca Tourism - account](/screenshots/account.jpeg)
