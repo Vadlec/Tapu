@@ -20,6 +20,8 @@ Users should be able to:
 - Check out available Real Estates
 - Add/Remove Real Estates to basket.
 
+<a href='/challenge/React Native.pdf'>The Challenge</a>
+
 ### Screenshot
 
 <img src="/screenshots/home.jpeg" width="200" height="500">
