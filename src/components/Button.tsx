@@ -8,25 +8,26 @@ type ButtonProps = {
   onpress?: () => void;
   loading?: boolean;
   disable?: boolean;
+  width?: string;
 };
 
 type ButtonViewProps = {
   primary: boolean;
   disable?: boolean;
+  width?: string;
 };
 
 const ButtonView = styled.TouchableOpacity<ButtonViewProps>`
   background-color: ${({theme, primary, disable}) =>
     disable ? theme.disabledColor : primary ? theme.primaryColor : theme.white};
   min-height: 55px;
-  width: 100%;
+  width: ${({width}) => width};
   border-radius: 15px;
   border-width: 1px;
   border-color: ${({theme, disable}) =>
     disable ? 'transparent' : theme.primaryColor};
   align-items: center;
   justify-content: center;
-  margin-top: 20px;
   elevation: 4;
 `;
 const ButtonText = styled.Text<ButtonViewProps>`
@@ -45,13 +46,15 @@ const Button: React.FC<ButtonProps> = ({
   children,
   loading = false,
   disable = false,
+  width = '100%',
 }) => {
   return (
     <ButtonView
       primary={primary}
       onPress={onpress}
       disabled={loading || disable}
-      disable={disable}>
+      disable={disable}
+      width={width}>
       {loading ? (
         <ActivityIndicator size="large" color={primary ? 'white' : '#E82223'} />
       ) : (

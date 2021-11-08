@@ -7,7 +7,7 @@ export const initalUserState: UserState = {
   user: null,
   loggedin: false,
   loading: false,
-  locale: 'TR',
+  locale: 'US',
 };
 
 export const UserContext = React.createContext<{

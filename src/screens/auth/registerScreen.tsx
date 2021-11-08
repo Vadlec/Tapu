@@ -1,4 +1,4 @@
-import React, {useContext, useState} from 'react';
+import React, {useContext, useState, useEffect} from 'react';
 import {
   AccountStackParams,
   MainBottomTabParamList,
@@ -14,7 +14,7 @@ import {
   StyledTextInput,
   RowBox,
 } from '../../components';
-import {TouchableOpacity, Text, View} from 'react-native';
+import {TouchableOpacity, Text, View, Keyboard} from 'react-native';
 import {InputProps, User} from '../../types';
 import {UserContext, login, setloading} from '../../context';
 import registerToFirebase from '../../functions/registerToFirebase';
@@ -32,22 +32,40 @@ const RegisterScreen: React.FC = () => {
   const [password, setPassword] = useState<InputProps>({key: 'password'});
   const [email, setEmail] = useState<InputProps>({key: 'email'});
   const [nameFocus, setNameFocus] = useState(false);
-  const [user, setUser] = useState<User>({email: '', password: '', name: ''});
-  const [error, setError] = useState({isError: false, message: ''});
+  const [user, setUser] = useState<User>({
+    email: '',
+    password: '',
+    name: '',
+    items: [],
+    currentItemPrice: 0,
+  });
+  const [error, setError] = useState(null);
   const handleChange = (key: keyof typeof user, text: string) => {
     let _user = {...user};
-    _user[key] = text;
+    if (key == 'email' || key == 'name' || key == 'password') _user[key] = text;
     setUser(_user);
   };
 
   const handleRegister = () => {
+    Keyboard.dismiss();
     dispatch(setloading(true));
-    registerToFirebase(user.email, user.password!, user.name!).then(() => {
-      dispatch(login(user));
-      dispatch(setloading(false));
-    });
+    registerToFirebase(user.email, user.password!, user.name!)
+      .then(() => {
+        dispatch(setloading(false));
+        dispatch(login(user));
+      })
+      .catch(err => {
+        dispatch(setloading(false));
+        setError(err);
+      });
   };
-
+  useEffect(() => {
+    if (error) {
+      setTimeout(() => {
+        setError(null);
+      }, 5000);
+    }
+  }, [error]);
   return (
     <Container>
       <Title>Register</Title>
@@ -59,11 +77,6 @@ const RegisterScreen: React.FC = () => {
         isfocused={email.focused}
         onChangeText={text => handleChange('email', text)}
       />
-      <View style={{display: 'flex'}}>
-        <HelperText type="error" visible={error.isError}>
-          {error.message}
-        </HelperText>
-      </View>
 
       <StyledTextInput
         placeholder="Name"
@@ -72,11 +85,7 @@ const RegisterScreen: React.FC = () => {
         isfocused={nameFocus}
         onChangeText={text => handleChange('name', text)}
       />
-      <View style={{display: 'flex'}}>
-        <HelperText type="error" visible={error.isError}>
-          {error.message}
-        </HelperText>
-      </View>
+
       <StyledTextInput
         onFocus={() => setPassword({...password, focused: true})}
         onBlur={() => setPassword({...password, focused: false})}
@@ -86,12 +95,23 @@ const RegisterScreen: React.FC = () => {
         isfocused={password.focused}
         onChangeText={text => handleChange('password', text)}
       />
+
+      <Button
+        text="Register"
+        onpress={() => handleRegister()}
+        loading={state.loading}
+        disable={
+          user.name!.trim().length == 0 ||
+          user.email.trim().length == 0 ||
+          user.password!.trim().length == 0
+        }
+      />
       <View style={{display: 'flex'}}>
-        <HelperText type="error" visible={error.isError}>
-          {error.message}
+        <HelperText type="error" visible={error != null}>
+          {error}
         </HelperText>
       </View>
-      <Button text="Register" onpress={() => handleRegister()} />
+
       <RowBox justCont="space-evenly">
         <Text>Already have an account?</Text>
         <TouchableOpacity onPress={() => navigation.navigate('Login')}>

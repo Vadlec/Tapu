@@ -17,7 +17,7 @@ type AccountScreenProp = CompositeNavigationProp<
   BottomTabNavigationProp<MainBottomTabParamList>
 >;
 
-function AccountScreen() {
+const AccountScreen = () => {
   const {state, dispatch} = useContext(UserContext);
 
   return (
@@ -37,5 +37,5 @@ function AccountScreen() {
         onpress={() => dispatch(logout())}></Button>
     </Container>
   );
-}
+};
 export default AccountScreen;

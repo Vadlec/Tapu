@@ -1,3 +1,5 @@
+import {ImageSourcePropType} from 'react-native';
+
 export interface UserState {
   user: User | null;
   loggedin: boolean;
@@ -10,12 +12,10 @@ export interface User {
   email: string;
   password?: string | null;
   token?: string;
+  items: ListItem[];
+  currentItemPrice: number;
 }
 
-export interface Error {
-  iserror: boolean;
-  message?: string | null;
-}
 export type InputProps = {
   key: string;
   input?: string;
@@ -23,3 +23,15 @@ export type InputProps = {
   error?: boolean;
   errorMessage?: string | null;
 };
+
+export interface ListItem {
+  name: string;
+  age: string;
+  'city-suffix': string;
+  'city-prefix': string;
+  price: string;
+  rating: string;
+  id: string;
+  distance: string;
+  imageURL: ImageSourcePropType;
+}

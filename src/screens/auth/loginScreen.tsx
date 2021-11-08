@@ -15,7 +15,7 @@ import {
   StyledTextInput,
   RowBox,
 } from '../../components';
-import {Text, TouchableOpacity, View} from 'react-native';
+import {Keyboard, Text, TouchableOpacity, View} from 'react-native';
 import {HelperText} from 'react-native-paper';
 import {InputProps, User} from '../../types';
 import {UserContext, login, setloading} from '../../context';
@@ -29,25 +29,32 @@ type LoginScreenProp = CompositeNavigationProp<
 const LoginScreen: React.FC = () => {
   const navigation = useNavigation<LoginScreenProp>();
   const {state, dispatch} = useContext(UserContext);
-  const [user, setUser] = useState<User>({email: '', password: '', name: ''});
-  const [error, setError] = useState({isError: false, message: ''});
+  const [user, setUser] = useState<User>({
+    email: '',
+    password: '',
+    name: '',
+    items: [],
+    currentItemPrice: 0,
+  });
+  const [error, setError] = useState(null);
   const [email, setEmail] = useState<InputProps>({key: 'email'});
   const [password, setPassword] = useState<InputProps>({key: 'password'});
 
   const handleChange = (key: keyof typeof user, text: string) => {
     let _user = {...user};
-    _user[key] = text;
+    if (key == 'email' || key == 'name' || key == 'password') _user[key] = text;
     setUser(_user);
   };
 
   const handleLogin = () => {
+    Keyboard.dismiss();
     dispatch(setloading(true));
     loginToFirebase(user.email!, user.password!)
       .then(response => {
         setUser({...user, name: response.user.displayName});
       })
       .catch(err => {
-        setError({isError: true, message: err});
+        setError(err);
         dispatch(setloading(false));
       });
   };
@@ -58,9 +65,9 @@ const LoginScreen: React.FC = () => {
     }
   }, [user.name]);
   useEffect(() => {
-    if (error.isError) {
+    if (error) {
       setTimeout(() => {
-        setError({isError: false, message: ''});
+        setError(null);
       }, 5000);
     }
   }, [error]);
@@ -96,8 +103,8 @@ const LoginScreen: React.FC = () => {
         }
       />
       <View style={{display: 'flex'}}>
-        <HelperText type="error" visible={error.isError}>
-          {error.message}
+        <HelperText type="error" visible={error != null}>
+          {error}
         </HelperText>
       </View>
 

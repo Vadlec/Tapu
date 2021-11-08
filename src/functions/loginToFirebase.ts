@@ -1,5 +1,5 @@
 import auth, {FirebaseAuthTypes} from '@react-native-firebase/auth';
-import {Alert} from 'react-native';
+
 function loginToFirebase(
   email: string,
   password: string,
