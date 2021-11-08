@@ -22,11 +22,11 @@ Users should be able to:
 
 ### Screenshot
 
-<img src="/screenshots/home.jpeg" width="100" height="100">
-![Speca Tourism - Homepage](/screenshots/home.jpeg)
-![Speca Tourism - basket](/screenshots/basket.jpeg)
-![Speca Tourism - account](/screenshots/account.jpeg)
-![Speca Tourism - login](/screenshots/login.jpeg)
+<img src="/screenshots/home.jpeg" width="200" height="500">
+<img src="/screenshots/basket.jpeg" width="200" height="500">
+<img src="/screenshots/account.jpeg" width="200" height="500">
+<img src="/screenshots/login.jpeg" width="200" height="500">
+
 
 
 
