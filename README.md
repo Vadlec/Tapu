@@ -1,6 +1,6 @@
 # Tapu App
 
-
+#### Video Demo: https://youtu.be/Su2B9hHu8HA
 
 ## Table of contents
 
@@ -20,8 +20,6 @@ Users should be able to:
 - Check out available Real Estates
 - Add/Remove Real Estates to basket.
 
-
-
 <a href="/challenge/ReactNative.pdf" class="image fit" type="application/pdf">The Challenge</a>
 
 ### Screenshot
@@ -30,9 +28,6 @@ Users should be able to:
 <img src="/screenshots/basket.jpeg" width="200" height="500">
 <img src="/screenshots/account.jpeg" width="200" height="500">
 <img src="/screenshots/Login.jpeg" width="200" height="500">
-
-
-
 
 ### Built with
 
