@@ -93,7 +93,7 @@ const Card: React.FC<CardProps> = ({
       {removeItem && (
         <TouchableOpacity onPress={() => removeItem(item)}>
           <RowBox justCont="center" marginTop={15}>
-            <IonIcons name="add-circle" color="#E82223" size={20} />
+            <IonIcons name="remove-circle" color="#E82223" size={20} />
             <Text style={{color: '#E82223', fontWeight: 'bold'}}>
               REMOVE FROM BASKET
             </Text>

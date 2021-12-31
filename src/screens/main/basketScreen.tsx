@@ -70,7 +70,7 @@ function BasketScreen() {
         }}>
         <View style={{backgroundColor: '#BBC3CF', height: 1}}></View>
         <Container>
-          <RowBox marginTop={0} justCont={'flex-start'}>
+          <RowBox marginTop={-15} justCont={'flex-start'}>
             <View style={{width: '100%'}}>
               <DisplayText>
                 Price:
